@@ -7,18 +7,20 @@ import sklearn
 app = Flask(__name__)
 
 def get_cleaned_data(form_data):
-    Gestational_Days = int(form_data['Maternal.Gestational.Days'])
-    Maternal_age = int(form_data['Maternal.age'])
-    Maternal_Height = int(form_data['Maternal.Height'])  
-    Maternal_Weight = int(form_data['Maternal.Pregnancy.Weight'])
-    Maternal_smoker = int(form_data['Maternal.Smoker'])  
+    gestation = (form_data['Maternal.Gestational.Days'])
+    parity = int(form_data['Parity'])
+    age = int(form_data['Maternal.age'])
+    height = int(form_data['Maternal.Height'])  
+    weight = int(form_data['Maternal.Pregnancy.Weight'])
+    smoke = int(form_data['Maternal.Smoker'])  
 
     cleaned_data = {
-        "Gestational.Days": [Gestational_Days],
-        "Maternal.Age": [Maternal_age],
-        "Maternal.Height": [Maternal_Height],
-        "Maternal.Pregnancy.Weight": [Maternal_Weight],
-        "Maternal.Smoker": [Maternal_smoker]
+        "gestation": [gestation],
+        "parity": [parity],
+        "age": [age],
+        "height": [height],
+        "weight": [weight],
+        "smoke": [smoke]
     }
 
     return cleaned_data
