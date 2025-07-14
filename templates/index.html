@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baby Birth Weight Predictor</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top left, #ffe8f5, #ffd6f3, #ffc6ec);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      animation: dreamyGlow 10s infinite alternate ease-in-out;
+      overflow-x: hidden;
+    }
+
+    @keyframes dreamyGlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .wrapper {
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 30px 40px;
+      margin: 50px auto;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 182, 193, 0.6);
+      backdrop-filter: blur(20px);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #cc2c77;
+      text-shadow: 1px 1px 2px white;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #cc2c77;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+      box-shadow: 0 0 10px rgba(255, 192, 203, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    input[type="number"]:focus {
+      border-color: #cc2c77;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(to right, #ff69b4, #ff85d2);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.6);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    button:hover {
+      transform: scale(1.03);
+      background: linear-gradient(to right, #ff85d2, #ff69b4);
+    }
+
+    .prediction {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 1.3rem;
+      color: #ff1493;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .wrapper {
+        padding: 20px;
+        margin: 30px 10px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>👶 Baby Birth Weight Predictor</h1>
+    <form action="/predict" method="POST">
+      <label for="Maternal.Gestational.Days">Gestational Days</label>
+      <input type="number" name="Maternal.Gestational.Days" required />
+
+      <label for="Maternal.age">Maternal Age</label>
+      <input type="number" name="Maternal.age" required />
+
+      <label for="Maternal.Height">Maternal Height (cm)</label>
+      <input type="number" name="Maternal.Height" required />
+
+      <label for="Maternal.Pregnancy.Weight">Pregnancy Weight (kg)</label>
+      <input type="number" name="Maternal.Pregnancy.Weight" required />
+
+      <label for="Maternal.Smoker">Smoker? (0 = No, 1 = Yes)</label>
+      <input type="number" name="Maternal.Smoker" required min="0" max="1" />
+
+      <button type="submit">Predict Weight</button>
+    </form>
+
+    {% if prediction %}
+      <div class="prediction">
+        🎉 Predicted Baby Weight: <strong>{{ prediction }} kg</strong>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
