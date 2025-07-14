@@ -51,9 +51,11 @@ Built using:
 ---
 
 📦 Deployment
+
 This app is deployed using Render, a free cloud platform to host web services and static sites.
 
 📈 Future Improvements
+
 Add baby gender prediction
 
 Store and visualize predictions
