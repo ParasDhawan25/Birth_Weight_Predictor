@@ -81,4 +81,5 @@ If you liked this project, please consider:
 
 📬 Contact
 Made with ❤️ by [Paras Dhawan](https://github.com/ParasDhawan25) · [LinkedIn](https://www.linkedin.com/in/parasdhawan)
+
 For any suggestions, feel free to open an issue or connect on GitHub.
