@@ -63,11 +63,14 @@ Store and visualize predictions
 Add user authentication for doctors
 
 🙌 Acknowledgments
+
 Dataset inspiration from public medical records
 
 Design ideas from Dribbble and Behance UI communities
 
+
 ⭐ Show Your Support
+
 If you liked this project, please consider:
 
 ⭐ Starring the repo
